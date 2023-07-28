@@ -24,7 +24,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full min-h-screen bg-gray-800  flex justify-center items-center">
+    <div className="w-full min-h-screen bg-primary  flex justify-center items-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
