@@ -24,6 +24,19 @@ export type CreateUserResponse = {
   success: boolean;
 };
 
+export type LoginUserBody = {
+  username: string;
+  loginPassword: string;
+};
+
+export type LoginUserResponse = {
+  traceId: string;
+  data: {
+    accessToken: string;
+  };
+  success: boolean;
+};
+
 export type UserInfo = {
   traceId: string;
   data: {
