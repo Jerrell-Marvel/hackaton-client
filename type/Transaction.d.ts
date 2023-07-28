@@ -1,4 +1,13 @@
-export type Transaction = {
+export type TransactionInfoBody = {
+  accountNo: string;
+  traxType: Array<string>;
+  pageNumber: number;
+  recordsPerPage: number;
+  startDate: number;
+  endDate: number;
+};
+
+export type TransactionData = {
   uid: number;
   amount: number;
   createTime: number;
@@ -8,6 +17,11 @@ export type Transaction = {
   receiverNo: string;
 };
 
-export type TransactionHistory = {
-  transactions: Transaction[];
+export type TransactionInfoResponse = {
+  traceId: string;
+  data: {
+    transactions: Transaction[];
+  };
+  errCode: string;
+  success: boolean;
 };
