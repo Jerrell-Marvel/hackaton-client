@@ -31,12 +31,12 @@ function Signup() {
   const [male, setMale] = useState(true);
 
   const dayHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 2) {
+    if (e.target.value.length <= 2 && parseInt(e.target.value) <= 31) {
       setDay(e.target.value);
     }
   };
   const monthHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 2) {
+    if (e.target.value.length <= 2 && parseInt(e.target.value) <= 12) {
       setMonth(e.target.value);
     }
   };
@@ -61,9 +61,11 @@ function Signup() {
     loginPassword: "",
     phoneNumber: "",
     birthDate: "",
-    gender: 0,
+    gender: male ? 0 : 1,
     email: "",
   });
+
+  console.log(signup);
 
   const verifPasswordHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setPasswordIsSame(() => e.target.value === signup.loginPassword);
@@ -71,12 +73,12 @@ function Signup() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-800  flex justify-center items-center">
+    <div className="w-full py-8 min-h-screen bg-primary flex justify-center items-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="bg-primary w-96 min-h-screen flex flex-col items-center justify-evenly z-10 px-20 lg:rounded-lg"
+        className="bg-primary p-12 min-h-screen flex flex-col items-center justify-evenly z-10 px-20 max-w-2xl lg:w-full lg:rounded-xl"
       >
         <div className="hero">
           <span className="flex justify-center items-center gap-2 mb-[45px]">
@@ -93,9 +95,9 @@ function Signup() {
         </div>
         <form
           action="submit"
-          className={`flex flex-col gap-[7px] ${poppins.className}`}
+          className={`flex flex-col lg:max-w-450 lg:flex-row lg:flex-wrap justify-around gap-[7px] ${poppins.className}`}
         >
-          <label htmlFor="ktpId" className="text-light px-2">
+          <label htmlFor="ktpId" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">ID KTP</span>
             <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={personCard} alt="ID KTP" />
@@ -113,7 +115,7 @@ function Signup() {
               />
             </div>
           </label>
-          <label htmlFor="username" className="text-light px-2">
+          <label htmlFor="username" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">Nama Pengguna</span>
             <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={usernameIcon} alt="username" />
@@ -131,7 +133,7 @@ function Signup() {
               />
             </div>
           </label>
-          <label htmlFor="password" className="text-light px-2">
+          <label htmlFor="password" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">Kata Sandi</span>
             <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={passwordIcon} alt="password" />
@@ -162,7 +164,7 @@ function Signup() {
               )}
             </div>
           </label>
-          <label htmlFor="verifPassword" className="text-light px-2">
+          <label htmlFor="verifPassword" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">
               Verifikasi Kata Sandi
             </span>
@@ -195,7 +197,7 @@ function Signup() {
               )}
             </div>
           </label>
-          <label htmlFor="phoneNumber" className="text-light px-2">
+          <label htmlFor="phoneNumber" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">Nomor Telepon</span>
             <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={phoneNumberIcon} alt="phoneNumber" />
@@ -213,7 +215,7 @@ function Signup() {
               />
             </div>
           </label>
-          <label className="text-light px-2">
+          <label className="text-light px-2 w-56">
             <span className="text-[13px] font-light">Tanggal Lahir</span>
             <div className="flex gap-2 items-center h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={calendar} alt="birthDate" />
@@ -222,6 +224,8 @@ function Signup() {
                   className="outline-none bg-transparent text-black text-[11px] w-5"
                   type="number"
                   id="birthDate"
+                  value={day}
+                  onChange={(e) => dayHandler(e)}
                   placeholder="DD"
                 />
                 <span className="text-primary"> | </span>
@@ -229,6 +233,8 @@ function Signup() {
                   className="outline-none bg-transparent text-black text-[11px] w-5"
                   type="number"
                   id="birthDate"
+                  value={month}
+                  onChange={(e) => monthHandler(e)}
                   placeholder="MM"
                 />
                 <span className="text-primary"> | </span>
@@ -236,12 +242,14 @@ function Signup() {
                   className="outline-none bg-transparent text-black text-[11px] w-8"
                   type="number"
                   id="birthDate"
+                  value={year}
+                  onChange={(e) => yearHandler(e)}
                   placeholder="YYYY"
                 />
               </div>
             </div>
           </label>
-          <label htmlFor="gender" className="text-light px-2">
+          <label htmlFor="gender" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">Jenis Kelamin</span>
             <div className="flex flex-col justify-start items-start font-medium text-[10px] gap-2 px-4">
               <label
@@ -255,6 +263,9 @@ function Signup() {
                   checked={male}
                   onChange={(e) => {
                     setMale(e.target.checked);
+                    setSignup((val) => {
+                      return { ...val, gender: e.target.checked ? 0 : 1 };
+                    });
                   }}
                 />
                 Pria
@@ -270,13 +281,16 @@ function Signup() {
                   checked={!male}
                   onChange={(e) => {
                     setMale(!e.target.checked);
+                    setSignup((val) => {
+                      return { ...val, gender: !e.target.checked ? 0 : 1 };
+                    });
                   }}
                 />
                 Perempuan
               </label>
             </div>
           </label>
-          <label htmlFor="email" className="text-light px-2">
+          <label htmlFor="email" className="text-light px-2 w-56">
             <span className="text-[13px] font-light">E-mail</span>
             <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={mail} alt="email" />
