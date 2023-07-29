@@ -7,11 +7,11 @@ import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { LoginUserBody } from "../../type/LoginData";
+import { LoginUserBody } from "../type/LoginData";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useLoginContext } from "../../context/LoginContext";
+import { useLoginContext } from "../context/LoginContext";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -45,22 +45,22 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full min-h-screen bg-primary  flex justify-center items-center">
+    <div className="flex min-h-screen w-full items-center justify-center bg-primary">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="bg-primary w-96 min-h-[92vh] flex flex-col items-center justify-evenly z-10 px-20 lg:rounded-lg"
+        className="z-10 flex min-h-[92vh] w-full max-w-screen-md flex-col items-center justify-evenly  px-20 "
       >
         <div className="hero">
-          <span className="flex justify-center items-center gap-2 mb-[45px]">
+          <span className="mb-[45px] flex items-center justify-center gap-2">
             <Image src={technoBankLogo} alt="TechnoBank Logo" />
-            <span className="text-orange-50 text-base font-normal">
+            <span className="text-base font-normal text-orange-50">
               technoBank
             </span>
           </span>
           <h1
-            className={`${poppins.className} font-semibold text-light text-3xl text-center `}
+            className={`${poppins.className} text-center text-3xl font-semibold text-light `}
           >
             Masuk
           </h1>
@@ -69,12 +69,12 @@ function Login() {
           action="submit"
           className={`flex flex-col gap-[7px] ${poppins.className}`}
         >
-          <label htmlFor="username" className="text-light px-2">
+          <label htmlFor="username" className="px-2 text-light">
             <span className="text-sm font-light">Nama Pengguna</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={usernameIcon} alt="username" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-40"
+                className="w-40 bg-transparent text-[11px] text-black outline-none"
                 type="text"
                 id="username"
                 placeholder="ketik nama pengguna disini ..."
@@ -87,12 +87,12 @@ function Login() {
               />
             </div>
           </label>
-          <label htmlFor="password" className="text-light px-2">
+          <label htmlFor="password" className="px-2 text-light">
             <span className="text-sm font-light">Kata Sandi</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={passwordIcon} alt="password" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-36"
+                className="w-36 bg-transparent text-[11px] text-black outline-none"
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="ketik sandi anda disini ..."
@@ -122,7 +122,7 @@ function Login() {
           <button
             type="submit"
             onClick={(e) => submitHandler(e)}
-            className="w-[152px] h-[35px] mx-auto bg-yellow text-light rounded-2xl text-base font-semibold hover:text-yellow hover:bg-light mt-10 hover:scale-105 transition"
+            className="mx-auto mt-10 h-[35px] w-[152px] rounded-2xl bg-yellow text-base font-semibold text-light transition hover:scale-105 hover:bg-light hover:text-yellow"
           >
             Masuk
           </button>
@@ -130,14 +130,14 @@ function Login() {
         <section className={`${poppins.className}`}>
           <Link
             href="/signup"
-            className="text-[11px] font-light text-light text-center hover:underline "
+            className="text-center text-[11px] font-light text-light hover:underline "
           >
             Belum mempunyai akun?
           </Link>
           <Link
             href="/signup"
             type="submit"
-            className="w-[100px] py-[5px] mx-auto hover:bg-yellow hover:text-light rounded-2xl text-base font-semibold  text-yellow bg-light flex items-center justify-center hover:scale-105 transition"
+            className="mx-auto flex w-[100px] items-center justify-center rounded-2xl bg-light py-[5px]  text-base font-semibold text-yellow transition hover:scale-105 hover:bg-yellow hover:text-light"
           >
             Daftar
           </Link>
