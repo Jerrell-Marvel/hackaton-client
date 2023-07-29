@@ -2,99 +2,129 @@ const merchantStoreName = () => {
   return (
     <div>
       {/* Main banner */}
-      <div className="bg-[url('/bg1.jpg')] w-full h-[50vh] flex flex-col justify-center items-center bg-no-repeat bg-cover relative">
-        <div className="absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-40"></div>
+      <div className="relative flex h-[42vh] w-full flex-col items-center justify-center bg-slate-400 bg-cover bg-no-repeat">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-black bg-opacity-40"></div>
 
-        <div className="z-20 relative w-2/3 md:w-1/2 text-center">
-          <div className="BaksoAbang text-white text-2xl font-semibold pb-7">Bakso Abang</div>
-          <div className="text-white font-Poppins text-center  text-[9px] font-normal pb-7">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con
+        <div className="relative z-20 w-2/3 text-center md:w-1/2">
+          <div className="BaksoAbang font-Poppins pb-8 text-xl font-semibold text-white md:text-5xl">
+            Bakso Abang
           </div>
-          <button className="w-[130px] h-[31px] bg-[#2F2F2F] rounded-xl">
-            <div className="text-center font-Poppins text-[13px] font-medium text-[#FAFBFC]">Kontak Kami</div>
+          <div className="font-Poppins pb-8 text-center  text-[10px] font-normal text-white md:text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            con
+          </div>
+          <button className="h-[31px] w-[130px] rounded-xl bg-[#2F2F2F]">
+            <div className="font-Poppins text-center text-[13px] font-medium text-[#FAFBFC]">
+              Kontak Kami
+            </div>
           </button>
         </div>
       </div>
 
       {/* Sosmed */}
-      <div className="w-full flex-shrink-0 bg-[#2F2F2F] flex flex-col items-center justify-center py-4">
+      <div className="flex w-full flex-shrink-0 flex-col items-center justify-center bg-[#2F2F2F] py-6 md:py-10">
         <div className="flex flex-col gap-4">
           <div className="flex items-center">
             <img
               src="/image9.png"
               alt="img"
-              className="w-[20px] h-[20px] mr-2"
+              className="mr-2 h-[20px] w-[20px] md:h-[25px] md:w-[25px]"
             />
-            <div className="text-center font-Poppins text-[9px] font-normal text-[#FAFBFC]">@BaksoAbang_123</div>
+            <div className="font-Poppins text-center text-[9px] font-normal text-[#FAFBFC] md:text-base">
+              @BaksoAbang_123
+            </div>
           </div>
           <div className="flex items-center">
             <img
               src="/image10.png"
               alt="img"
-              className="w-[20px] h-[20px] mr-2"
+              className="mr-2 h-[20px] w-[20px] md:h-[25px] md:w-[25px]"
             />
-            <div className="text-center font-Poppins text-[9px] font-normal text-[#FAFBFC]">@Bakso_Abang.123</div>
+            <div className="font-Poppins text-center text-[9px] font-normal text-[#FAFBFC] md:text-base">
+              @Bakso_Abang.123
+            </div>
           </div>
           <div className="flex items-center">
             <img
               src="/image11.png"
               alt="img"
-              className="w-[20px] h-[20px] mr-2"
+              className="mr-2 h-[20px] w-[20px] md:h-[25px] md:w-[25px]"
             />
-            <div className="text-center font-Poppins text-[9px] font-normal text-[#FAFBFC]">Bakso Abang</div>
+            <div className="font-Poppins text-center text-[9px] font-normal text-[#FAFBFC] md:text-base">
+              Bakso Abang
+            </div>
           </div>
           <div className="flex items-center">
             <img
               src="/image12.png"
               alt="img"
-              className="w-[20px] h-[20px] mr-2"
+              className="mr-2 h-[20px] w-[20px] md:h-[25px] md:w-[25px]"
             />
-            <div className="text-center font-Poppins text-[9px] font-normal text-[#FAFBFC]">0811 455 6212</div>
+            <div className="font-Poppins text-center text-[9px] font-normal text-[#FAFBFC] md:text-base">
+              0811 455 6212
+            </div>
           </div>
         </div>
       </div>
 
       {/* Best seller */}
 
-      <section className="bg-[#FFBD00] p-7">
-        <div className="text-center text-white">
-          <h3>Best seller</h3>
+      <section className="bg-[#FF7F00] p-7 md:p-12">
+        <div className="font-Poppins text-center text-xl text-white md:text-3xl">
+          <h3>Best selling</h3>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-7 gap-4">
-          <div className="flex items-center min-h-[126px] gap-2 ">
-            <div className="w-1/2 h-full bg-[url('/bg1.jpg')] bg-cover flex flex-col-reverse rounded-md overflow-hidden">
-              <div className="bg-yellow text-white px-2 py-1">Baso jawir</div>
+        <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          <div className="flex min-h-[126px] items-center gap-2 ">
+            <div className="flex h-full w-1/2 flex-col-reverse overflow-hidden rounded-md bg-[#B7BF52] bg-cover">
+              <div className="font-Poppins bg-yellow px-2 py-1 text-sm text-[#2F2F2F] md:text-lg">
+                Baso jawir
+              </div>
             </div>
-            <div className="w-1/2">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, asperiores?</p>
-              <p>Rp 17.500</p>
-            </div>
-          </div>
-          <div className="flex items-center min-h-[126px] gap-2 ">
-            <div className="w-1/2 h-full bg-[url('/bg1.jpg')] bg-cover flex flex-col-reverse rounded-md overflow-hidden">
-              <div className="bg-yellow text-white px-2 py-1">Baso jawir</div>
-            </div>
-            <div className="w-1/2">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, asperiores?</p>
-              <p>Rp 17.500</p>
+            <div className="font-Poppins w-1/2 text-[10px] text-[#FCFAEF] md:text-sm">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Delectus, asperiores?
+              </p>
+              <p className="font-Poppins text-base md:text-xl ">Rp 17.500</p>
             </div>
           </div>
-          <div className="flex items-center min-h-[126px] gap-2 ">
-            <div className="w-1/2 h-full bg-[url('/bg1.jpg')] bg-cover flex flex-col-reverse rounded-md overflow-hidden">
-              <div className="bg-yellow text-white px-2 py-1">Baso jawir</div>
+          <div className="flex min-h-[126px] items-center gap-2 ">
+            <div className="flex h-full w-1/2 flex-col-reverse overflow-hidden rounded-md bg-[#B7BF52] bg-cover">
+              <div className="font-Poppins bg-yellow px-2 py-1 text-sm text-[#2F2F2F] md:text-lg">
+                Baso jawir
+              </div>
             </div>
-            <div className="w-1/2">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, asperiores?</p>
-              <p>Rp 17.500</p>
+            <div className="font-Poppins w-1/2 text-[10px] text-[#FCFAEF] md:text-sm ">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Delectus, asperiores?
+              </p>
+              <p className="font-Poppins text-base md:text-xl">Rp 17.500</p>
+            </div>
+          </div>
+          <div className="flex min-h-[126px] items-center gap-2 ">
+            <div className="flex h-full w-1/2 flex-col-reverse overflow-hidden rounded-md bg-[#B7BF52] bg-cover">
+              <div className="font-Poppins bg-yellow px-2 py-1 text-sm text-[#2F2F2F] md:text-lg">
+                Baso jawir
+              </div>
+            </div>
+            <div className="font-Poppins w-1/2 text-[10px] text-[#FCFAEF] md:text-sm">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Delectus, asperiores?
+              </p>
+              <p className="font-Poppins text-base md:text-xl">Rp 17.500</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* LOcatin */}
-      <section className="bg-primary text-white flex flex-col items-center p-7">
-        <div className="text-center">
-          <h3>Lokasi</h3>
+      <section className="flex flex-col items-center bg-slate-600 p-7 text-white md:p-12">
+        <div className="text-center ">
+          <h3 className="text-sm  md:text-xl">Lokasi</h3>
           <div className="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -114,8 +144,8 @@ const merchantStoreName = () => {
             </div>
           </div>
 
-          <h3 className="mt-4">Kontak</h3>
-          <div className="flex gap-3">
+          <h3 className="mt-4 text-sm  md:text-xl">Kontak</h3>
+          <div className="flex gap-3 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="19"
@@ -134,7 +164,7 @@ const merchantStoreName = () => {
             </div>
           </div>
 
-          <h3 className="mt-4">Jam buka</h3>
+          <h3 className="mt-4 text-sm md:text-xl">Jam buka</h3>
 
           <div>
             <p>Lorem ipsum dolor sit amet.</p>
