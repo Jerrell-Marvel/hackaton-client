@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <LoginProvider>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </LoginProvider>
     </QueryClientProvider>
   );
