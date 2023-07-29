@@ -38,3 +38,33 @@ export type BankAccountInfo = {
 };
 
 export type AllBankAccount = Array<BankAccountInfo>;
+
+export type monthlyIncome = {
+  monthlyData: {
+    januari: number;
+    februari: number;
+    maret: number;
+    april: number;
+    mei: number;
+    juni: number;
+    juli: number;
+    agustus: number;
+    september: number;
+    oktober: number;
+    november: number;
+    desember: number;
+  };
+  total: number;
+};
+
+export type MerchantDetail = {
+  _id: string;
+  name: string;
+  accountName: string;
+  accountNo: string;
+  verified: boolean;
+  qrCodeImg: string;
+  assets: [];
+  __v: number;
+  balance: number;
+};
