@@ -73,15 +73,11 @@ const CreateMerchantStore = () => {
     //   console.log(`${key}: ${value}`);
     // }
 
-    const response = await axios.post(
-      "http://localhost:5000/web/64c4b43944904e11cbfe2421",
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJ1aWQiOjI0NywiaXNzIjoiQk5DIiwiZXhwIjoxNjkwNjE2MDIyLCJpYXQiOjE2OTA2MTUxMjJ9.zW2km62FZiL8d9v36eE4IAbbeOAeqXCN4kKsYkQctso`,
-        },
-      }
-    );
+    const response = await axios.post("http://localhost:5000/web/64c4b43944904e11cbfe2421", formData, {
+      headers: {
+        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJ1aWQiOjI0NywiaXNzIjoiQk5DIiwiZXhwIjoxNjkwNjE4Mjk3LCJpYXQiOjE2OTA2MTczOTd9.iiPKfG85qRZWPDNL_rtL74KCovfgJDeSyAPC9E_tHe8`,
+      },
+    });
 
     console.log(response.data);
   };
