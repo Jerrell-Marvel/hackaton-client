@@ -6,7 +6,6 @@ import { useLoginContext } from "../../context/LoginContext";
 
 function Navbar() {
   const { isLogin, username } = useLoginContext();
-  console.log(isLogin, username);
   return (
     <div className="flex justify-around items-center p-[10px] bg-primary ">
       <div className="hero flex items-center">
