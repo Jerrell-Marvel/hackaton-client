@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { CreateUserBody, CreateUserResponse } from "../../../type/User";
+import { CreateUserBody, CreateUserResponse } from "../../type/User";
 import axios, { AxiosError } from "axios";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<CreateUserResponse>
+  res: NextApiResponse<CreateUserResponse>,
 ) {
   if (req.method === "POST") {
     try {
@@ -12,7 +12,7 @@ export default async function handler(
         "http://34.101.154.14:8175/hackathon/user/auth/create",
         {
           ...req.body,
-        }
+        },
       );
 
       const data = response.data;

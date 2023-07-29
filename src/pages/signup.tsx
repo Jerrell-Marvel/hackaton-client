@@ -13,7 +13,7 @@ import { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Poppins } from "next/font/google";
-import { CreateUserBody } from "../../type/User";
+import { CreateUserBody } from "../type/User";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -92,22 +92,22 @@ function Signup() {
   };
 
   return (
-    <div className="w-full py-8 min-h-screen bg-primary flex justify-center items-center">
+    <div className="flex min-h-screen w-full items-center justify-center bg-primary py-8">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="bg-primary p-12 min-h-screen flex flex-col items-center justify-evenly z-10 px-20 max-w-2xl lg:w-full lg:rounded-xl"
+        className="z-10 flex min-h-screen max-w-2xl flex-col items-center justify-evenly bg-primary p-12 px-20 lg:w-full lg:rounded-xl"
       >
         <div className="hero">
-          <span className="flex justify-center items-center gap-2 mb-[45px]">
+          <span className="mb-[45px] flex items-center justify-center gap-2">
             <Image src={technoBankLogo} alt="TechnoBank Logo" />
-            <span className="text-orange-50 text-base font-normal">
+            <span className="text-base font-normal text-orange-50">
               technoBank
             </span>
           </span>
           <h1
-            className={`${poppins.className} font-semibold text-light text-3xl text-center `}
+            className={`${poppins.className} text-center text-3xl font-semibold text-light `}
           >
             Masuk
           </h1>
@@ -122,14 +122,14 @@ function Signup() {
         </div>
         <form
           action="submit"
-          className={`flex flex-col lg:max-w-450 lg:flex-row lg:flex-wrap justify-around gap-[7px] ${poppins.className}`}
+          className={`lg:max-w-450 flex flex-col justify-around gap-[7px] lg:flex-row lg:flex-wrap ${poppins.className}`}
         >
-          <label htmlFor="ktpId" className="text-light px-2 w-56">
+          <label htmlFor="ktpId" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">ID KTP</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={personCard} alt="ID KTP" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-40"
+                className="w-40 bg-transparent text-[11px] text-black outline-none"
                 type="text"
                 id="ktpId"
                 placeholder="ketik ID KTP anda disini ..."
@@ -142,12 +142,12 @@ function Signup() {
               />
             </div>
           </label>
-          <label htmlFor="username" className="text-light px-2 w-56">
+          <label htmlFor="username" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">Nama Pengguna</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={usernameIcon} alt="username" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-40"
+                className="w-40 bg-transparent text-[11px] text-black outline-none"
                 type="text"
                 id="username"
                 placeholder="ketik nama pengguna disini ..."
@@ -160,12 +160,12 @@ function Signup() {
               />
             </div>
           </label>
-          <label htmlFor="password" className="text-light px-2 w-56">
+          <label htmlFor="password" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">Kata Sandi</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={passwordIcon} alt="password" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-36"
+                className="w-36 bg-transparent text-[11px] text-black outline-none"
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="ketik sandi anda disini ..."
@@ -191,14 +191,14 @@ function Signup() {
               )}
             </div>
           </label>
-          <label htmlFor="verifPassword" className="text-light px-2 w-56">
+          <label htmlFor="verifPassword" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">
               Verifikasi Kata Sandi
             </span>
-            <div className="flex gap-2 h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px] gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={verifPasswordIcon} alt="Verif Logo" />
               <input
-                className={`outline-none bg-transparent text-black text-decoration-thickness underline-offset-4 text-[11px] w-36 decoration-red-600 ${
+                className={`text-decoration-thickness w-36 bg-transparent text-[11px] text-black decoration-red-600 underline-offset-4 outline-none ${
                   passwordIsSame ? "" : "underline"
                 }`}
                 type={showVerifPassword ? "text" : "password"}
@@ -224,12 +224,12 @@ function Signup() {
               )}
             </div>
           </label>
-          <label htmlFor="phoneNumber" className="text-light px-2 w-56">
+          <label htmlFor="phoneNumber" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">Nomor Telepon</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={phoneNumberIcon} alt="phoneNumber" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-40"
+                className="w-40 bg-transparent text-[11px] text-black outline-none"
                 type="text"
                 id="phoneNumber"
                 placeholder="ketik nomor anda disini ..."
@@ -242,13 +242,13 @@ function Signup() {
               />
             </div>
           </label>
-          <label className="text-light px-2 w-56">
+          <label className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">Tanggal Lahir</span>
-            <div className="flex gap-2 items-center h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px] items-center gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={calendar} alt="birthDate" />
-              <div className="w-full flex flex-row justify-evenly">
+              <div className="flex w-full flex-row justify-evenly">
                 <input
-                  className="outline-none bg-transparent text-black text-[11px] w-5"
+                  className="w-5 bg-transparent text-[11px] text-black outline-none"
                   type="number"
                   id="birthDate"
                   value={day}
@@ -257,7 +257,7 @@ function Signup() {
                 />
                 <span className="text-primary"> | </span>
                 <input
-                  className="outline-none bg-transparent text-black text-[11px] w-5"
+                  className="w-5 bg-transparent text-[11px] text-black outline-none"
                   type="number"
                   id="birthDate"
                   value={month}
@@ -266,7 +266,7 @@ function Signup() {
                 />
                 <span className="text-primary"> | </span>
                 <input
-                  className="outline-none bg-transparent text-black text-[11px] w-8"
+                  className="w-8 bg-transparent text-[11px] text-black outline-none"
                   type="number"
                   id="birthDate"
                   value={year}
@@ -276,9 +276,9 @@ function Signup() {
               </div>
             </div>
           </label>
-          <label htmlFor="gender" className="text-light px-2 w-56">
+          <label htmlFor="gender" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">Jenis Kelamin</span>
-            <div className="flex flex-col justify-start items-start font-medium text-[10px] gap-2 px-4">
+            <div className="flex flex-col items-start justify-start gap-2 px-4 text-[10px] font-medium">
               <label
                 className="flex items-center justify-start gap-1"
                 htmlFor="pria"
@@ -317,12 +317,12 @@ function Signup() {
               </label>
             </div>
           </label>
-          <label htmlFor="email" className="text-light px-2 w-56">
+          <label htmlFor="email" className="w-56 px-2 text-light">
             <span className="text-[13px] font-light">E-mail</span>
-            <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
+            <div className="flex h-[38px]  gap-2 rounded-[10px] bg-zinc-300 px-4">
               <Image src={mail} alt="email" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-40 invalid:underline invalid:decoration-red-600 decoration-2"
+                className="w-40 bg-transparent text-[11px] text-black decoration-2 outline-none invalid:underline invalid:decoration-red-600"
                 type="email"
                 id="email"
                 placeholder="masukkan e-mail anda disini ..."
@@ -339,7 +339,7 @@ function Signup() {
           <button
             onClick={(e) => submitHandler(e)}
             type="submit"
-            className="w-[152px] h-[35px] mx-auto bg-yellow text-light rounded-2xl text-base font-semibold hover:text-yellow hover:bg-light mt-10 hover:scale-105 transition"
+            className="mx-auto mt-10 h-[35px] w-[152px] rounded-2xl bg-yellow text-base font-semibold text-light transition hover:scale-105 hover:bg-light hover:text-yellow"
           >
             Buat Akun
           </button>

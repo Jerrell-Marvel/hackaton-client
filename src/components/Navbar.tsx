@@ -2,16 +2,16 @@ import Image from "next/image";
 import technoBankLogo from "@/assets/BankLogo.svg";
 import globe from "@/assets/globe2.svg";
 import Link from "next/link";
-import { useLoginContext } from "../../context/LoginContext";
+import { useLoginContext } from "../context/LoginContext";
 
 function Navbar() {
   const { isLoggedIn, username } = useLoginContext();
   return (
-    <div className="flex justify-around items-center p-[10px] bg-primary ">
+    <div className="flex items-center justify-around bg-primary p-[10px] drop-shadow-sm ">
       <div className="hero flex items-center">
-        <Link href={"/"} className="flex justify-center items-center gap-2 ">
+        <Link href={"/"} className="flex items-center justify-center gap-2 ">
           <Image src={technoBankLogo} alt="TechnoBank Logo" />
-          <span className="text-orange-50 text-base font-normal">
+          <span className="text-base font-normal text-orange-50">
             technoBank
           </span>
         </Link>
@@ -21,7 +21,7 @@ function Navbar() {
         {isLoggedIn ? (
           <Link
             href={"/dashboard"}
-            className="bg-yellow text-white  px-[10px] py-[5px] text-xs font-normal rounded-lg hover:bg-yellow hover:text-white"
+            className="rounded-lg bg-yellow  px-[10px] py-[5px] text-xs font-normal text-white hover:bg-yellow hover:text-white"
           >
             {username}
           </Link>
@@ -29,13 +29,13 @@ function Navbar() {
           <>
             <Link
               href={"/signup"}
-              className="bg-white text-yellow  px-[10px] py-[5px] text-xs font-normal rounded-lg hover:bg-white hover:text-yellow "
+              className="rounded-lg bg-white  px-[10px] py-[5px] text-xs font-normal text-yellow hover:bg-white hover:text-yellow "
             >
               Daftar
             </Link>
             <Link
               href={"/login"}
-              className="bg-yellow text-white  px-[10px] py-[5px] text-xs font-normal rounded-lg hover:bg-yellow hover:text-white"
+              className="rounded-lg bg-yellow  px-[10px] py-[5px] text-xs font-normal text-white hover:bg-yellow hover:text-white"
             >
               Masuk
             </Link>
