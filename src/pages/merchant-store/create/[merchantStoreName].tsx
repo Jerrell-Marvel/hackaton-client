@@ -73,11 +73,15 @@ const CreateMerchantStore = () => {
     //   console.log(`${key}: ${value}`);
     // }
 
-    const response = await axios.post("http://localhost:5000/web/64c4b43944904e11cbfe2421", formData, {
-      headers: {
-        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJ1aWQiOjI0NywiaXNzIjoiQk5DIiwiZXhwIjoxNjkwNjI5MDkxLCJpYXQiOjE2OTA2MjgxOTF9.8nQ9VnME4SgNezOk0DuHr88RSYqo7KASpV_k8kjqCZg`,
+    const response = await axios.post(
+      "http://localhost:5000/web/64c4b43944904e11cbfe2421",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("TOKEN")}`,
+        },
       },
-    });
+    );
 
     console.log(response.data);
   };
@@ -86,19 +90,30 @@ const CreateMerchantStore = () => {
     <>
       <div className="p-8">
         <p>
-          Selamat datang di layanan pembuatan website kami! Untuk memulai proses pengembangan website impian Anda, silakan isi form di bawah ini dengan sejelas dan seakurat mungkin. Informasi yang Anda berikan akan membantu tim kami
-          memahami kebutuhan Anda secara tepat, sehingga kami dapat menghasilkan website yang sesuai dengan harapan dan tujuan bisnis Anda.
+          Selamat datang di layanan pembuatan website kami! Untuk memulai proses
+          pengembangan website impian Anda, silakan isi form di bawah ini dengan
+          sejelas dan seakurat mungkin. Informasi yang Anda berikan akan
+          membantu tim kami memahami kebutuhan Anda secara tepat, sehingga kami
+          dapat menghasilkan website yang sesuai dengan harapan dan tujuan
+          bisnis Anda.
         </p>
       </div>
 
-      <button className="fixed bottom-4 right-4 px-8 py-3 bg-green-400 text-white rounded-md">Simpan</button>
+      <button
+        className="fixed bottom-4 right-4 rounded-md bg-green-400 px-8 py-3 text-white"
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        Simpan
+      </button>
       <div>
         {/* Main banner */}
-        <div className="bg-[url('/bg1.jpg')] w-full h-[50vh] flex flex-col justify-center items-center bg-no-repeat bg-cover relative">
-          <div className="absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-40"></div>
+        <div className="relative flex h-[50vh] w-full flex-col items-center justify-center bg-[url('/bg1.jpg')] bg-cover bg-no-repeat">
+          <div className="absolute bottom-0 left-0 right-0 top-0 bg-black bg-opacity-40"></div>
 
-          <div className="z-20 relative w-2/3 md:w-1/2 text-center flex flex-col items-center">
-            <div className="w-full flex text-white items-center mb-7">
+          <div className="relative z-20 flex w-2/3 flex-col items-center text-center md:w-1/2">
+            <div className="mb-7 flex w-full items-center text-white">
               <label htmlFor="">Banner image</label>
               <input
                 type="file"
@@ -113,7 +128,7 @@ const CreateMerchantStore = () => {
             </div>
 
             <input
-              className="text-black  px-2 rounded-sm mb-7 w-full"
+              className="mb-7  w-full rounded-sm px-2 text-black"
               type="text"
               name="mainHeader"
               placeholder="main header"
@@ -131,23 +146,25 @@ const CreateMerchantStore = () => {
               onChange={(e) => {
                 onChangeHandler(e);
               }}
-              className="text-black px-2 rounded-sm mb-7 w-full"
+              className="mb-7 w-full rounded-sm px-2 text-black"
             />
 
-            <button className="w-[130px] h-[31px] bg-[#2F2F2F] rounded-xl">
-              <div className="text-center font-Poppins text-[13px] font-medium text-[#FAFBFC]">Kontak Kami</div>
+            <button className="h-[31px] w-[130px] rounded-xl bg-[#2F2F2F]">
+              <div className="font-Poppins text-center text-[13px] font-medium text-[#FAFBFC]">
+                Kontak Kami
+              </div>
             </button>
           </div>
         </div>
 
         {/* Sosmed */}
-        <div className="w-full flex-shrink-0 bg-[#2F2F2F] flex flex-col items-center justify-center py-4">
+        <div className="flex w-full flex-shrink-0 flex-col items-center justify-center bg-[#2F2F2F] py-4">
           <div className="flex flex-col gap-4">
             <div className="flex items-center">
               <img
                 src="/image9.png"
                 alt="img"
-                className="w-[20px] h-[20px] mr-2"
+                className="mr-2 h-[20px] w-[20px]"
               />
               {/* <div className="text-center font-Poppins text-[9px] font-normal text-[#FAFBFC]">@BaksoAbang_123</div> */}
               <input
@@ -158,14 +175,14 @@ const CreateMerchantStore = () => {
                 onChange={(e) => {
                   onChangeHandler(e);
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
             </div>
             <div className="flex items-center">
               <img
                 src="/image10.png"
                 alt="img"
-                className="w-[20px] h-[20px] mr-2"
+                className="mr-2 h-[20px] w-[20px]"
               />
               <input
                 type="text"
@@ -175,14 +192,14 @@ const CreateMerchantStore = () => {
                 onChange={(e) => {
                   onChangeHandler(e);
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
             </div>
             <div className="flex items-center">
               <img
                 src="/image11.png"
                 alt="img"
-                className="w-[20px] h-[20px] mr-2"
+                className="mr-2 h-[20px] w-[20px]"
               />
               <input
                 type="text"
@@ -192,14 +209,14 @@ const CreateMerchantStore = () => {
                 onChange={(e) => {
                   onChangeHandler(e);
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
             </div>
             <div className="flex items-center">
               <img
                 src="/image12.png"
                 alt="img"
-                className="w-[20px] h-[20px] mr-2"
+                className="mr-2 h-[20px] w-[20px]"
               />
               {/* <div className="text-center font-Poppins text-[9px] font-normal text-[#FAFBFC]">0811 455 6212</div> */}
               <input
@@ -210,7 +227,7 @@ const CreateMerchantStore = () => {
                 onChange={(e) => {
                   onChangeHandler(e);
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
             </div>
           </div>
@@ -222,7 +239,7 @@ const CreateMerchantStore = () => {
           <div className="text-center text-white">
             <h3>Best selling</h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-7 gap-4">
+          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             <div className="flex flex-col gap-2 ">
               <input
                 type="file"
@@ -244,7 +261,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
               <input
                 type="text"
@@ -257,7 +274,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
 
               <input
@@ -271,7 +288,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
               {/* <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, asperiores?</p>
                 <p>Rp 17.500</p> */}
@@ -298,7 +315,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
               <input
                 type="text"
@@ -311,7 +328,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
 
               <input
@@ -325,7 +342,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
             </div>
 
@@ -350,7 +367,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
               <input
                 type="text"
@@ -363,7 +380,7 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
 
               <input
@@ -377,14 +394,14 @@ const CreateMerchantStore = () => {
                     [e.target.name]: e.target.value,
                   });
                 }}
-                className="px-2 rounded-sm"
+                className="rounded-sm px-2"
               />
             </div>
           </div>
         </section>
 
         {/* LOcatin */}
-        <section className="bg-primary text-white flex flex-col items-center p-7">
+        <section className="flex flex-col items-center bg-primary p-7 text-white">
           <div className="text-center">
             <h3>Lokasi</h3>
             <input
@@ -395,7 +412,7 @@ const CreateMerchantStore = () => {
               onChange={(e) => {
                 onChangeHandler(e);
               }}
-              className="text-black px-2 rounded-sm"
+              className="rounded-sm px-2 text-black"
             />
 
             <h3 className="mt-4">Kontak</h3>
@@ -408,7 +425,7 @@ const CreateMerchantStore = () => {
               onChange={(e) => {
                 onChangeHandler(e);
               }}
-              className="text-black px-2 rounded-sm"
+              className="rounded-sm px-2 text-black"
             />
 
             <h3 className="mt-4">Jam buka</h3>
@@ -421,7 +438,7 @@ const CreateMerchantStore = () => {
               onChange={(e) => {
                 onChangeHandler(e);
               }}
-              className="text-black px-2 rounded-sm"
+              className="rounded-sm px-2 text-black"
             />
           </div>
         </section>

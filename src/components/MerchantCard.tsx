@@ -6,7 +6,7 @@ function MerchantCard(props: BankAccountInfo) {
   console.log(props);
   return (
     <>
-      <div className="relative m-4 h-[79px] w-[138px] rounded-[10px] bg-primary drop-shadow-sm">
+      <div className="relative m-4 w-[138px] rounded-[10px] bg-primary drop-shadow-sm">
         <h3 className="absolute -top-2 h-[19px] w-full rounded-tl-[10px] rounded-tr-[10px] bg-yellow px-2 py-0.5 text-center text-[11px] font-normal text-light">
           {props.name}
         </h3>
@@ -17,7 +17,7 @@ function MerchantCard(props: BankAccountInfo) {
           )},-`}</div>
           <Link
             href={""}
-            className="rounded-lg bg-white  px-[10px] py-[5px] text-[9px] font-normal text-yellow hover:bg-white hover:text-yellow "
+            className="my-4 rounded-lg bg-white px-[10px] py-[5px] text-[9px] font-normal text-yellow hover:bg-white hover:text-yellow"
           >
             Lihat Detail
           </Link>
