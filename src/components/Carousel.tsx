@@ -17,6 +17,7 @@ function Carousel() {
 
       <Swiper
         style={{
+          //@ts-ignore
           "--swiper-navigation-color": "#000",
           "--swiper-pagination-color": "#000",
           "--swiper-navigation-size": "28px",
