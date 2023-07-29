@@ -1,4 +1,6 @@
 import axios, { AxiosError } from "axios";
+import Image from "next/image";
+import technoBankLogo from "@/assets/BankLogo.svg";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import { useMutation } from "react-query";
@@ -16,7 +18,7 @@ const Daftar = () => {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("TOKEN")}`,
           },
-        }
+        },
       );
 
       return response.data;
@@ -37,29 +39,32 @@ const Daftar = () => {
 
   const [name, setName] = useState("");
   return (
-    <div className="bg-primary h-screen py-11 text-white">
+    <div className="h-screen bg-primary py-11 text-white">
       {/* <div>
         <span>technobank</span>
       </div> */}
 
-      <div className="w-full h-full flex flex-col">
-        <h2 className="text-center text-base">Techno bank</h2>
+      <div className="flex h-full w-full flex-col">
+        <div className="hero flex items-center justify-center">
+          <div className="flex items-center justify-center gap-2 ">
+            <Image src={technoBankLogo} alt="TechnoBank Logo" />
+            <span className="text-base font-normal text-orange-50">
+              technoBank
+            </span>
+          </div>
+        </div>
+        <div className="flex h-full items-center justify-center px-6">
+          <form className="-mt-11" onSubmit={(e) => handleSubmit(e)}>
+            <h3 className="mb-5 text-center text-4xl font-semibold">
+              {" "}
+              Daftar usaha UMKM
+            </h3>
 
-        <div className="h-full flex justify-center items-center px-6">
-          <form
-            className="-mt-11"
-            onSubmit={(e) => handleSubmit(e)}
-          >
-            <h3 className="text-4xl mb-5 text-center font-semibold"> Daftar usaha UMKM</h3>
-
-            <label
-              htmlFor="nama-usaha"
-              className="mb-1 block"
-            >
+            <label htmlFor="nama-usaha" className="mb-1 block">
               Nama usaha
             </label>
 
-            <div className="bg-[#D9D9D9] py-3 flex items-center rounded-lg px-3">
+            <div className="flex items-center rounded-lg bg-[#D9D9D9] px-3 py-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -79,28 +84,24 @@ const Daftar = () => {
                 </g>
                 <defs>
                   <clipPath id="clip0_118_323">
-                    <rect
-                      width="13.5"
-                      height="13.5"
-                      fill="white"
-                    />
+                    <rect width="13.5" height="13.5" fill="white" />
                   </clipPath>
                 </defs>
               </svg>
               <input
                 type="text"
                 id="nama-usaha"
-                className="w-full bg-[#D9D9D9] text-base py-1 px-4 outline-none text-black"
+                className="w-full bg-[#D9D9D9] px-4 py-1 text-base text-black outline-none"
                 placeholder="masukan nama usaha..."
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
 
-            <div className="w-full flex justify-center mt-7">
+            <div className="mt-7 flex w-full justify-center">
               <button
                 type="submit"
-                className="px-4 py-2 rounded-full bg-yellow uppercase"
+                className="rounded-full bg-yellow px-4 py-2 uppercase"
               >
                 Daftarkan
               </button>

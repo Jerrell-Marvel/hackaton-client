@@ -1,14 +1,24 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import add from "@/assets/add.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoginContext } from "../context/LoginContext";
 import MerchantCard from "@/components/MerchantCard";
 import { AllBankAccount, BankAccountInfo } from "../type/BankAccount";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Dashboard() {
   const { username } = useLoginContext();
+
+  const router = useRouter();
+  const { isLoggedIn } = useLoginContext();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push("/login");
+    }
+  }, [isLoggedIn, router]);
 
   const [bufferBankAccount, setbuff] = useState<AllBankAccount>([
     {
@@ -109,6 +119,10 @@ function Dashboard() {
     },
   ]);
 
+  if (!isLoggedIn) {
+    return;
+  }
+
   return (
     <>
       <Navbar />
@@ -127,7 +141,7 @@ function Dashboard() {
           })}
         </div>
         <Link
-          href={"/"}
+          href={"/daftarumkm"}
           className="add-business flex flex-row items-center  gap-2 "
         >
           <Image src={add} alt="addIcon" />

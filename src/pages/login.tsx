@@ -45,12 +45,12 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex min-h-screen w-full  items-center justify-center bg-primary">
+    <div className="flex min-h-screen w-full items-center justify-center bg-primary">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="z-10 flex min-h-[92vh] w-96 flex-col items-center justify-evenly bg-primary px-20 lg:rounded-lg"
+        className="z-10 flex min-h-[92vh] w-full max-w-screen-md flex-col items-center justify-evenly  px-20 "
       >
         <div className="hero">
           <span className="mb-[45px] flex items-center justify-center gap-2">
