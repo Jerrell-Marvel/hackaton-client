@@ -2,9 +2,9 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import add from "@/assets/add.svg";
 import { useEffect, useState } from "react";
-import { useLoginContext } from "../context/LoginContext";
+import { useLoginContext } from "../../context/LoginContext";
 import MerchantCard from "@/components/MerchantCard";
-import { AllBankAccount, BankAccountInfo } from "../type/BankAccount";
+import { AllBankAccount, BankAccountInfo } from "../../type/BankAccount";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
