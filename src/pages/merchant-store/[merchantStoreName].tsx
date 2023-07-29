@@ -167,7 +167,9 @@ const merchantStoreName = ({
 
 export const getServerSideProps: GetServerSideProps<any> = async (context) => {
   const { query } = context;
-  const response = await axios.get("http://localhost:5000/web/mie kingkong");
+  const response = await axios.get(
+    `http://localhost:5000/web/${query.merchantStoreName}`,
+  );
   const data = response.data;
 
   return {

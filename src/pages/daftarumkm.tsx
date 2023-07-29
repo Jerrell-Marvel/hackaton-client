@@ -24,6 +24,10 @@ const Daftar = () => {
       return response.data;
     },
 
+    onSuccess: () => {
+      router.push("/dashboard");
+    },
+
     onError: (err) => {
       //@ts-ignore
       if (err.response?.data.message) {

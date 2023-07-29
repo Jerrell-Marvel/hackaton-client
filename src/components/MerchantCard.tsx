@@ -16,7 +16,7 @@ function MerchantCard(props: BankAccountInfo) {
             props.accountInfo.data.balance,
           )},-`}</div>
           <Link
-            href={""}
+            href={`/dashboard/${props.name}`}
             className="my-4 rounded-lg bg-white px-[10px] py-[5px] text-[9px] font-normal text-yellow hover:bg-white hover:text-yellow"
           >
             Lihat Detail

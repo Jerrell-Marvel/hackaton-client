@@ -26,7 +26,7 @@ function Signup() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showVerifPassword, setShowVerifPassword] = useState<boolean>(false);
   const [verifPassword, setVerifPassword] = useState<string>("");
-  const [passwordIsSame, setPasswordIsSame] = useState<boolean>(false);
+  const [passwordIsSame, setPasswordIsSame] = useState<boolean>(true);
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");

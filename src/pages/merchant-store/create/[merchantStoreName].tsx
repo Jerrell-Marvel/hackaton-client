@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useQuery } from "react-query";
 
@@ -14,6 +15,8 @@ const CreateMerchantStore = () => {
     facebook: "",
     whatsapp: "",
   });
+
+  const router = useRouter();
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -74,7 +77,7 @@ const CreateMerchantStore = () => {
     // }
 
     const response = await axios.post(
-      "http://localhost:5000/web/64c4b43944904e11cbfe2421",
+      `http://localhost:5000/web/${router.query.merchantStoreName}`,
       formData,
       {
         headers: {
