@@ -14,6 +14,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Poppins } from "next/font/google";
 import { CreateUserBody } from "../../type/User";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -30,13 +32,32 @@ function Signup() {
   const [year, setYear] = useState("");
   const [male, setMale] = useState(true);
 
+  const router = useRouter();
+  const [userAlreadyExist, setUserAlreadyExist] = useState(false);
+
+  const submitHandler = async (e: any) => {
+    e.preventDefault();
+    try {
+      if (passwordIsSame) {
+        const response = await axios.post("/api/signup", signup);
+        if (response.data.success) {
+          router.push("/login");
+        } else {
+          setUserAlreadyExist(true);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const dayHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 2 && parseInt(e.target.value) <= 31) {
+    if (e.target.value.length <= 2) {
       setDay(e.target.value);
     }
   };
   const monthHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length <= 2 && parseInt(e.target.value) <= 12) {
+    if (e.target.value.length <= 2) {
       setMonth(e.target.value);
     }
   };
@@ -65,8 +86,6 @@ function Signup() {
     email: "",
   });
 
-  console.log(signup);
-
   const verifPasswordHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setPasswordIsSame(() => e.target.value === signup.loginPassword);
     setVerifPassword(e.target.value);
@@ -92,6 +111,14 @@ function Signup() {
           >
             Masuk
           </h1>
+
+          {userAlreadyExist ? (
+            <div className="text-red-600 underline decoration-red-600">
+              User already exists
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <form
           action="submit"
@@ -295,7 +322,7 @@ function Signup() {
             <div className="flex gap-2  h-[38px] bg-zinc-300 rounded-[10px] px-4">
               <Image src={mail} alt="email" />
               <input
-                className="outline-none bg-transparent text-black text-[11px] w-40"
+                className="outline-none bg-transparent text-black text-[11px] w-40 invalid:underline invalid:decoration-red-600 decoration-2"
                 type="email"
                 id="email"
                 placeholder="masukkan e-mail anda disini ..."
@@ -310,6 +337,7 @@ function Signup() {
           </label>
 
           <button
+            onClick={(e) => submitHandler(e)}
             type="submit"
             className="w-[152px] h-[35px] mx-auto bg-yellow text-light rounded-2xl text-base font-semibold hover:text-yellow hover:bg-light mt-10 hover:scale-105 transition"
           >

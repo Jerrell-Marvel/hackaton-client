@@ -9,6 +9,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { LoginUserBody } from "../../type/LoginData";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useLoginContext } from "../../context/LoginContext";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -16,10 +19,28 @@ const poppins = Poppins({
 });
 
 function Login() {
+  const router = useRouter();
+  const { setIsLogin, setUsername } = useLoginContext();
+
   const [login, setLogin] = useState<LoginUserBody>({
     username: "",
     loginPassword: "",
   });
+
+  const submitHandler = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/login", login);
+      if (response.data.success) {
+        setIsLogin((val) => !val);
+        setUsername(login.username);
+        localStorage.setItem("TOKEN", response.data.data.accessToken);
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -100,6 +121,7 @@ function Login() {
 
           <button
             type="submit"
+            onClick={(e) => submitHandler(e)}
             className="w-[152px] h-[35px] mx-auto bg-yellow text-light rounded-2xl text-base font-semibold hover:text-yellow hover:bg-light mt-10 hover:scale-105 transition"
           >
             Masuk
