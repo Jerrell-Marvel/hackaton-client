@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLoginContext } from "../../context/LoginContext";
 
 function Navbar() {
-  const { isLogin, username } = useLoginContext();
+  const { isLoggedIn, username } = useLoginContext();
   return (
     <div className="flex justify-around items-center p-[10px] bg-primary ">
       <div className="hero flex items-center">
@@ -18,7 +18,7 @@ function Navbar() {
       </div>
       <div className="btn flex flex-row gap-4">
         <Image src={globe} alt="langIcon" className="text-light" />
-        {isLogin ? (
+        {isLoggedIn ? (
           <Link
             href={"/dashboard"}
             className="bg-yellow text-white  px-[10px] py-[5px] text-xs font-normal rounded-lg hover:bg-yellow hover:text-white"

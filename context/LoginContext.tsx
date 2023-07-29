@@ -10,24 +10,24 @@ import {
 type LoginContextData = {
   username: string;
   setUsername: Dispatch<SetStateAction<string>>;
-  isLogin: boolean;
-  setIsLogin: Dispatch<SetStateAction<boolean>>;
+  isLoggedIn: boolean;
+  setisLoggedIn: Dispatch<SetStateAction<boolean>>;
 };
 
 const LoginContext = createContext<LoginContextData>({
   username: "",
   setUsername: () => {},
-  isLogin: false,
-  setIsLogin: () => {},
+  isLoggedIn: false,
+  setisLoggedIn: () => {},
 });
 
 export const LoginProvider = ({ children }: { children: ReactNode }) => {
   const [username, setUsername] = useState<string>("");
-  const [isLogin, setIsLogin] = useState<boolean>(false);
+  const [isLoggedIn, setisLoggedIn] = useState<boolean>(false);
 
   return (
     <LoginContext.Provider
-      value={{ username, setUsername, isLogin, setIsLogin }}
+      value={{ username, setUsername, isLoggedIn, setisLoggedIn }}
     >
       {children}
     </LoginContext.Provider>

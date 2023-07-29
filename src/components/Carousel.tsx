@@ -19,7 +19,6 @@ function Carousel() {
         }}
         slidesPerView={2}
         centeredSlides={true}
-        spaceBetween={30}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,

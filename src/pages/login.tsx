@@ -20,7 +20,7 @@ const poppins = Poppins({
 
 function Login() {
   const router = useRouter();
-  const { setIsLogin, setUsername } = useLoginContext();
+  const { setisLoggedIn, setUsername } = useLoginContext();
 
   const [login, setLogin] = useState<LoginUserBody>({
     username: "",
@@ -32,7 +32,7 @@ function Login() {
     try {
       const response = await axios.post("/api/login", login);
       if (response.data.success) {
-        setIsLogin((val) => !val);
+        setisLoggedIn((val) => !val);
         setUsername(login.username);
         localStorage.setItem("TOKEN", response.data.data.accessToken);
         router.push("/dashboard");
